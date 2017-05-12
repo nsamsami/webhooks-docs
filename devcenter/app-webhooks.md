@@ -8,20 +8,21 @@ Heroku webhooks provide subscription to HTTP notifications when things change.  
 
 Webhook integration requires subscribing via the CLI or API and implementing endpoints to receive events. This document provides details on how to subscribe and receive notifications. We welcome questions, feedback and suggestions via [ecosystem-feedback@heroku.com](mailto:ecosystem-feedback@heroku.com).
 
->note During the alpha, if you are using the API rather than the CLI to manage webhooks, you should know that the webhook API endpoints must be addressed will not work without setting the `Accept` header to `application/vnd.heroku+json; version=3.webhooks`. This document gives an example further below.
 
-## Installing the Webhook Plugin
+## Creating a Webhook Subscription via the CLI 
+
+# Install the Webhook Plugin
 
 ```
 heroku plugins:install heroku-webhooks
 ```
 
-## Creating a Webhook Subscription
+# Add a webhook to an app
 
 ```
 Usage: heroku webhooks:add
 
-add a webhook to an app
+
 
  -a, --app APP                     # app to run command against
  -t, --authorization AUTHORIZATION # authoriation header to send with webhooks
@@ -38,6 +39,11 @@ Example:
  === Webhooks Signing Secret
  475beb0bf7de962fb89878a767c22f7de22154dae1e6996b6b33299e7a0f
 ```
+
+## Creating a Webhook Subscription via the API 
+
+>note During the alpha, if you are using the API rather than the CLI to manage webhooks, you should know that the webhook API endpoints must be addressed will not work without setting the `Accept` header to `application/vnd.heroku+json; version=3.webhooks`. This document gives an example further below.
+
 
 Before you will receive any events, you subscribe using `heroku webhooks:add` [(API)](/articles/app-webhooks-schema?preview=1#webhook-create) which includes these parameters:
 
